@@ -119,6 +119,12 @@ public class AnthonyTrang_05
 
 	//********************************************************************************************************************
 	
+	/**
+	 * main method - Calls processInput & generateReport methods
+	 * 
+	 * @param args
+	 */
+
 	public static void main (String[] args) throws Exception
 	{
 		processInput();
