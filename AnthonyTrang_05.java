@@ -24,7 +24,7 @@ import java.util.Scanner;				// Use scanner class
 
 public class AnthonyTrang_05
 {	
-	private static Postfix postfix;
+	//private static Postfix postfix;
 	private static String postfixResults;
 	/**
 	 * processInput method - processes the input received from file
@@ -62,7 +62,8 @@ public class AnthonyTrang_05
 				inputArray = inputString.split("(?!^)");
 
 				//Send line to convertToPostfix method in Postfix Class & Save result in postfixArray
-				result = postfix.convertToPostfix(inputArray);
+				
+				result = Postfix.convertToPostfix(inputArray);
 				postfixResults = postfixResults + result + ",";
 				
 				// Read the next line in the inputFile
@@ -120,7 +121,6 @@ public class AnthonyTrang_05
 	
 	public static void main (String[] args) throws Exception
 	{
-		postfix = new Postfix();
 		processInput();
         generateReport();
 	}
