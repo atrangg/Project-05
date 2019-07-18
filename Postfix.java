@@ -24,7 +24,7 @@ public class Postfix // will interface with the stack class
 		// Process to check each character in array and begin creating postfixString
 		for (int i = 0; i <= inputArray.length; i++)
 		{
-            charReturned = characterCheck(inputArray[i]);
+			charReturned = characterCheck(inputArray[i]);
             
 			// If the returned string is not a blank string, add it to the postfixString
 			if (!charReturned.equals(""))
@@ -57,8 +57,11 @@ public class Postfix // will interface with the stack class
 		{
             // Peek at top of stack
 			topChar = stack.peek();
-			
-            if (topChar.equals("("))
+			if(stack.isEmpty())
+			{
+				stack.push(newChar);
+			}
+            else if (topChar.equals("("))
 			{
 				// Push the new  char to the stack
 				stack.push(newChar);
@@ -80,8 +83,11 @@ public class Postfix // will interface with the stack class
 		{
 			// Peek at top of stack
 			topChar = stack.peek();
-			
-            if (topChar.equals("("))
+			if(stack.isEmpty())
+			{
+				stack.push(newChar);
+			}
+            else if (topChar.equals("("))
 			{
 				// Push the new  char to the stack
 				stack.push(newChar);
@@ -103,8 +109,11 @@ public class Postfix // will interface with the stack class
 		{
 			// Peek at top of stack
 			topChar = stack.peek();
-			
-            if (topChar.equals("-") || topChar.equals("+") || topChar.equals("("))
+			if(stack.isEmpty())
+			{
+				stack.push(newChar);
+			}
+            else if (topChar.equals("-") || topChar.equals("+") || topChar.equals("("))
 			{
 				// Push the new  char to the stack
 				stack.push(newChar);
@@ -126,8 +135,11 @@ public class Postfix // will interface with the stack class
 		{
             // Peek at top of stack
 			topChar = stack.peek();
-			
-            if (topChar.equals("-") || topChar.equals("+") || topChar.equals("("))
+			if(stack.isEmpty())
+			{
+				stack.push(newChar);
+			}
+            else if (topChar.equals("-") || topChar.equals("+") || topChar.equals("("))
 			{
 				// Push the new  char to the stack
 				stack.push(newChar);
