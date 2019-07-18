@@ -131,6 +131,7 @@ public class Link<T> implements MyCollectionInterfaceProject04<T>
 		{
 			nodeBefore.setNext(null);
 			lastNode = nodeBefore;
+			numberOfEntries--;
 			return dataToReturn;
 		}
 	}
