@@ -10,7 +10,7 @@ public class Postfix // will interface with the stack class
 	public static Stack<Character> stack;
 	public static char charReturned;
 	public static char[] postfixArray;
-	public static int size;
+	public static int counter;
 	public static char topChar;
 	public static char charToAdd;
 	
@@ -26,7 +26,7 @@ public class Postfix // will interface with the stack class
 		System.out.println("New Expression: ");
 		char[] inputArray = inputExpression.toCharArray();
 		postfixArray = inputArray;
-		size = 0;
+		counter = 0;
 		stack = new Stack<>();
 		
 		System.out.println(inputArray);
@@ -59,14 +59,14 @@ public class Postfix // will interface with the stack class
 	
 	public static void addCharToArray(char addChar)
 	{
-		if (size == 0)
+		if (counter == 0)
 		{
-			postfixArray[size] = addChar;
+			postfixArray[counter] = addChar;
 		}
 		else
 		{
-			size++;
-			postfixArray[size] = addChar;
+			counter++;
+			postfixArray[counter] = addChar;
 			System.out.println(postfixArray);
 		}
 	}
