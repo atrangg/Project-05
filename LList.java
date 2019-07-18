@@ -149,7 +149,7 @@ public class LList <T> implements MyCollectionInterfaceProject04 {
 	
 	// ************************************************************************
 	
-	public T replace (T givenPosition, T newEntry) {
+	public T replace (int givenPosition, T newEntry) {
 		
 		if ((givenPosition == 1) && (givenPosition <= size)) {
 			
@@ -163,7 +163,7 @@ public class LList <T> implements MyCollectionInterfaceProject04 {
 
 	// ************************************************************************
 
-	private Node<T> getNodeAt(T givenPosition) {
+	private Node<T> getNodeAt(int givenPosition) {
 		
 		if((givenPosition >= 1) && (givenPosition <= numberOfEntries + 1)) {
 			
@@ -191,7 +191,7 @@ public class LList <T> implements MyCollectionInterfaceProject04 {
 			
 		}
 		
-		return;
+		return true;
       
 	} // End add
 
@@ -199,7 +199,6 @@ public class LList <T> implements MyCollectionInterfaceProject04 {
 
 	public boolean add(Object newItem, int position) {
 		
-		// TODO Auto-generated method stub
 		
 		return false;
 	}
