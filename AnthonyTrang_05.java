@@ -41,7 +41,6 @@ public class AnthonyTrang_05
 		File inputDataFile;
 		Scanner inputFile;
 		String inputString;
-		String[] inputArray;
 		String inputFilename = "Project05_Input.txt";
 		inputDataFile = new File(inputFilename);
 		
@@ -52,20 +51,16 @@ public class AnthonyTrang_05
 			// Create our Scanner instance
 			inputFile = new Scanner(inputDataFile);
 			
-			// Read the next line in the inputFile
-			inputString = inputFile.nextLine();
+			
 
 			while (inputFile.hasNextLine()) {
-				// Parse the string into an Array at every character in String
-				inputArray = inputString.split("(?!^)");
+				// Read the next line in the inputFile
+				inputString = inputFile.nextLine();
 
 				//Send line to convertToPostfix method in Postfix Class & Save result in postfixArray
-				
-				result = Postfix.convertToPostfix(inputArray);
+				result = Postfix.convertToPostfix(inputString);
 				postfixResults = postfixResults + result + ",";
 				
-				// Read the next line in the inputFile
-				//inputString = inputFile.nextLine();
 			}
 			// Close the input file
 			inputFile.close();
