@@ -26,9 +26,9 @@ public class Stack<T> {
 	 * pop method - pops the first element out of the link
 	 */
 	
-	public void pop() {
+	public String pop() {
 		
-		link.removeFirst();
+		return link.removeFirst();
 		
 	} // End pop
 	
@@ -37,9 +37,9 @@ public class Stack<T> {
 	/*
 	 * peek method - Displays the first element on the top of the link.
 	 */
-	public void peek() {
+	public String peek() {
 		
-		link.first();
+		return link.first();
 		
 	} // End peek
 	
