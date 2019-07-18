@@ -7,6 +7,7 @@
 
 public class Postfix // will interface with the stack class
 {
+	public static Stack stack;
 	public static String charReturned;
 	public static String postfixString;
 	public static String topChar;
@@ -75,7 +76,7 @@ public class Postfix // will interface with the stack class
 				return charToReturn + " ";
 			}
 		}
-        else if (character.equals("-"))
+        else if (newChar.equals("-"))
 		{
 			// Peek at top of stack
 			topChar = stack.peek();
@@ -98,7 +99,7 @@ public class Postfix // will interface with the stack class
 				return charToReturn + " ";
 			}
 		}
-        else if (character.equals("*"))
+        else if (newChar.equals("*"))
 		{
 			// Peek at top of stack
 			topChar = stack.peek();
@@ -121,7 +122,7 @@ public class Postfix // will interface with the stack class
 				return charToReturn + " ";
 			}
 		}
-        else if (character.equals("/"))
+        else if (newChar.equals("/"))
 		{
             // Peek at top of stack
 			topChar = stack.peek();
@@ -144,15 +145,15 @@ public class Postfix // will interface with the stack class
 				return charToReturn + " ";
 			}
 		}
-        else if (character.equals("^"))
+        else if (newChar.equals("^"))
 		{
             stack.push(newChar);
 		}
-        else if (character.equals("("))
+        else if (newChar.equals("("))
 		{
             stack.push(newChar);
 		}
-        else if (character.equals(")"))
+        else if (newChar.equals(")"))
 		{
             // Peek at top of stack
 			topChar = stack.peek();
