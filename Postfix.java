@@ -32,13 +32,18 @@ public class Postfix // will interface with the stack class
 		for (int i = 0; i < inputArray.length; i++)
 		{
 			characterCheck(inputArray[i]);
+			if (i+1 == inputArray.length)
+			{
+				addCharToString(stack.pop());
+			}
         }
         
 		// Check to make sure the stack is Empty, if not return an empty String
-		//if (!stack.isEmpty())
-		//{
-                //return "";
-		//}
+		if (!stack.isEmpty())
+		{
+			System.out.println("stack is not empty");	
+			return "";
+		}
 		// Create & Return the postfixString created from postfixArray
 		return postfixString;
 	}
