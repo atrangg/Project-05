@@ -8,7 +8,7 @@
 
 public class Stack<T> {
 
-	LList<T> link = new LList<T>(); // Instantiate class LList
+	Link<T> link = new Link<T>(); // Instantiate class LList
 		
 	/*
 	 * push method - pushes the first element into the link
@@ -16,7 +16,7 @@ public class Stack<T> {
 	
 	public void push(T data) {
 		
-		link.addFirst(data);
+		link.add(data);
 		
 	} // End push
 	
@@ -26,9 +26,9 @@ public class Stack<T> {
 	 * pop method - pops the first element out of the link
 	 */
 	
-	public String pop() {
+	public T pop() {
 		
-		return link.removeFirst();
+		return link.remove();
 		
 	} // End pop
 	
@@ -37,7 +37,7 @@ public class Stack<T> {
 	/*
 	 * peek method - Displays the first element on the top of the link.
 	 */
-	public String peek() {
+	public T peek() {
 		
 		return link.first();
 		
