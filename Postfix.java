@@ -23,7 +23,10 @@ public class Postfix // will interface with the stack class
 	public static String convertToPostfix(String inputExpression)
 	{
 		// Take inputExpression and use .toCharArray() to create an Array of each of the characters
+		System.out.println("New Expression: ");
 		char[] inputArray = inputExpression.toCharArray();
+		postfixArray = inputArray;
+		size = 0;
 		stack = new Stack<>();
 		
 		System.out.println(inputArray);
@@ -41,6 +44,7 @@ public class Postfix // will interface with the stack class
 		}
 		// Create & Return the postfixString created from postfixArray
 		String postFixString = new String(postfixArray);
+		System.out.println(postFixString);
 		return postFixString;
 	}
 	
@@ -55,10 +59,16 @@ public class Postfix // will interface with the stack class
 	
 	public static void addCharToArray(char addChar)
 	{
-		size++;
-		postfixArray[size] = addChar;
-		size++;
-		postfixArray[size] = ' ';
+		if (size == 0)
+		{
+			postfixArray[size] = addChar;
+		}
+		else
+		{
+			size++;
+			postfixArray[size] = addChar;
+			System.out.println(postfixArray);
+		}
 	}
 	
 	 // Checks the character to determine if it needs to be added to the stack or returned to be added to the postfixString
@@ -182,11 +192,12 @@ public class Postfix // will interface with the stack class
 
             while (topChar != '(')
 			{
-                addCharToArray(topChar);
+				topChar = stack.pop();
+				addCharToArray(topChar);
 				topChar = stack.peek();
 			}
 		}
-		else if ( newChar != ' ')
+		else
 		{
 			addCharToArray(newChar);
 		}
