@@ -16,9 +16,7 @@ public class Link<T> implements MyCollectionInterfaceProject04<T>
 	public Link()
 	{
 		//Initialize the link list
-		firstNode = null;
-		lastNode = null;
-		numberOfEntries = 0;
+		clear();
 	}
 
 	// ********************************************************************** 
@@ -117,16 +115,24 @@ public class Link<T> implements MyCollectionInterfaceProject04<T>
 	// ********************************************************************** 
 	
 	/**
-	 * remove method - Removes the given entry from list
-	 * @return True if the removal is successful, or false if not.
+	 * remove method - Removes entry from list
+	 * @return the entry that was removed
 	 */
 	public T remove()
 	{
 		T dataToReturn = lastNode.getData();
 		Node<T> nodeBefore = lastNode.getPrevious();
-		nodeBefore.setNext(null);
-		lastNode = nodeBefore;
-		return dataToReturn;
+		if(nodeBefore == null)
+		{
+			clear();
+			return dataToReturn;
+		}
+		else
+		{
+			nodeBefore.setNext(null);
+			lastNode = nodeBefore;
+			return dataToReturn;
+		}
 	}
 
 	// ********************************************************************** 
