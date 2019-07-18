@@ -55,13 +55,17 @@ public class Postfix // will interface with the stack class
 	{
         if (newChar.equals("+"))
 		{
-            // Peek at top of stack
-			topChar = stack.peek();
+			// Check if Stack is Empty
 			if(stack.isEmpty())
 			{
 				stack.push(newChar);
+				return "";
 			}
-            else if (topChar.equals("("))
+
+			// Peek at top of stack
+			topChar = stack.peek();
+
+            if (topChar.equals("("))
 			{
 				// Push the new  char to the stack
 				stack.push(newChar);
@@ -81,13 +85,17 @@ public class Postfix // will interface with the stack class
 		}
         else if (newChar.equals("-"))
 		{
-			// Peek at top of stack
-			topChar = stack.peek();
+			// Check if Stack is Empty
 			if(stack.isEmpty())
 			{
 				stack.push(newChar);
+				return "";
 			}
-            else if (topChar.equals("("))
+
+			// Peek at top of stack
+			topChar = stack.peek();
+
+			if (topChar.equals("("))
 			{
 				// Push the new  char to the stack
 				stack.push(newChar);
@@ -107,13 +115,17 @@ public class Postfix // will interface with the stack class
 		}
         else if (newChar.equals("*"))
 		{
-			// Peek at top of stack
-			topChar = stack.peek();
+			// Check if Stack is Empty
 			if(stack.isEmpty())
 			{
 				stack.push(newChar);
+				return "";
 			}
-            else if (topChar.equals("-") || topChar.equals("+") || topChar.equals("("))
+
+			// Peek at top of stack
+			topChar = stack.peek();
+
+			if (topChar.equals("-") || topChar.equals("+") || topChar.equals("("))
 			{
 				// Push the new  char to the stack
 				stack.push(newChar);
@@ -133,13 +145,17 @@ public class Postfix // will interface with the stack class
 		}
         else if (newChar.equals("/"))
 		{
-            // Peek at top of stack
-			topChar = stack.peek();
+			// Check if Stack is Empty
 			if(stack.isEmpty())
 			{
 				stack.push(newChar);
+				return "";
 			}
-            else if (topChar.equals("-") || topChar.equals("+") || topChar.equals("("))
+
+			// Peek at top of stack
+			topChar = stack.peek();
+
+			if (topChar.equals("-") || topChar.equals("+") || topChar.equals("("))
 			{
 				// Push the new  char to the stack
 				stack.push(newChar);
@@ -167,9 +183,16 @@ public class Postfix // will interface with the stack class
 		}
         else if (newChar.equals(")"))
 		{
-            // Peek at top of stack
+			// Check if Stack is Empty
+			if(stack.isEmpty())
+			{
+				// Return an Error
+				return "";
+			}
+
+			// Peek at top of stack
 			topChar = stack.peek();
-			
+
             while (!topChar.equals("("))
 			{
                 charToReturn = charToReturn + " ";
