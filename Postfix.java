@@ -21,6 +21,8 @@ public class Postfix // will interface with the stack class
 
 	public static String convertToPostfix(String[] inputArray)
 	{
+		stack = new Stack();
+		
 		// Process to check each character in array and begin creating postfixString
 		for (int i = 0; i <= inputArray.length; i++)
 		{
