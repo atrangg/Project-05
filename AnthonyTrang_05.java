@@ -56,8 +56,6 @@ public class AnthonyTrang_05
 			inputString = inputFile.nextLine();
 
 			while (inputFile.hasNextLine()) {
-				System.out.println("this works\n");
-
 				// Parse the string into an Array at every character in String
 				inputArray = inputString.split("(?!^)");
 
