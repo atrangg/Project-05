@@ -60,6 +60,7 @@ public class AnthonyTrang_05
 				//Send line to convertToPostfix method in Postfix Class & Save result in postfixArray
 				result = Postfix.convertToPostfix(inputString);
 				postfixResults = postfixResults + result + ",";
+				System.out.println(postfixResults);
 				
 			}
 			// Close the input file
