@@ -122,7 +122,7 @@ public class Link<T> implements MyCollectionInterfaceProject04<T>
 	{
 		T dataToReturn = lastNode.getData();
 		Node<T> nodeBefore = lastNode.getPrevious();
-		if(nodeBefore == null)
+		if(firstNode == lastNode)
 		{
 			clear();
 			return dataToReturn;
