@@ -9,7 +9,7 @@ public class Postfix // will interface with the stack class
 {
 	public static Stack<Character> stack;
 	public static char charReturned;
-	public static char[] postfixArray;
+	public static String postfixString;
 	public static int counter;
 	public static char topChar;
 	public static char charToAdd;
@@ -23,13 +23,10 @@ public class Postfix // will interface with the stack class
 	public static String convertToPostfix(String inputExpression)
 	{
 		// Take inputExpression and use .toCharArray() to create an Array of each of the characters
-		System.out.println("New Expression: ");
 		char[] inputArray = inputExpression.toCharArray();
-		postfixArray = inputArray;
+		postfixString = "";
 		counter = 0;
 		stack = new Stack<>();
-		
-		System.out.println(inputArray);
 
 		// Process to check each character in array create postfixArray
 		for (int i = 0; i < inputArray.length; i++)
@@ -38,14 +35,12 @@ public class Postfix // will interface with the stack class
         }
         
 		// Check to make sure the stack is Empty, if not return an empty String
-		if (!stack.isEmpty())
-		{
-                return "";
-		}
+		//if (!stack.isEmpty())
+		//{
+                //return "";
+		//}
 		// Create & Return the postfixString created from postfixArray
-		String postFixString = new String(postfixArray);
-		System.out.println(postFixString);
-		return postFixString;
+		return postfixString;
 	}
 	
 	//********************************************************************************************************************
@@ -57,24 +52,14 @@ public class Postfix // will interface with the stack class
 	 */
 	
 	
-	public static void addCharToArray(char addChar)
+	public static void addCharToString(char addChar)
 	{
-		if (counter == 0)
-		{
-			postfixArray[counter] = addChar;
-		}
-		else
-		{
-			counter++;
-			postfixArray[counter] = addChar;
-			System.out.println(postfixArray);
-		}
+		postfixString = postfixString + Character.toString(addChar);
 	}
 	
 	 // Checks the character to determine if it needs to be added to the stack or returned to be added to the postfixString
 	public static void characterCheck(char newChar)
 	{
-		System.out.println(newChar);
 		if (newChar == '+')
 		{
 			// Check if Stack is Empty
@@ -96,7 +81,7 @@ public class Postfix // will interface with the stack class
 				// Return top character of Stack and Push the new  char to the stack
 				charToAdd = stack.pop();
 				stack.push(newChar);
-				addCharToArray(charToAdd);
+				addCharToString(charToAdd);
 			}
 		}
         else if (newChar == '-')
@@ -120,7 +105,7 @@ public class Postfix // will interface with the stack class
 				// Return top character of Stack and Push the new  char to the stack
 				charToAdd = stack.pop();
 				stack.push(newChar);
-				addCharToArray(charToAdd);
+				addCharToString(charToAdd);
 			}
 		}
         else if (newChar == '*')
@@ -144,7 +129,7 @@ public class Postfix // will interface with the stack class
 				// Return top character of Stack and Push the new  char to the stack
 				charToAdd = stack.pop();
 				stack.push(newChar);
-				addCharToArray(charToAdd);
+				addCharToString(charToAdd);
 			}
 		}
         else if (newChar == '/')
@@ -168,7 +153,7 @@ public class Postfix // will interface with the stack class
 				// Return top character of Stack and Push the new  char to the stack
 				charToAdd = stack.pop();
 				stack.push(newChar);
-				addCharToArray(charToAdd);
+				addCharToString(charToAdd);
 			}
 		}
         else if (newChar == '^')
@@ -193,13 +178,13 @@ public class Postfix // will interface with the stack class
             while (topChar != '(')
 			{
 				topChar = stack.pop();
-				addCharToArray(topChar);
+				addCharToString(topChar);
 				topChar = stack.peek();
 			}
 		}
-		else
+		else if (newChar != ' ')
 		{
-			addCharToArray(newChar);
+			addCharToString(newChar);
 		}
 	}
 }
