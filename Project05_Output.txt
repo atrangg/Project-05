@@ -1,12 +1,12 @@
 ab+
 abc*+
-Does Not have correct syntax.
-Does Not have correct syntax.
+abc^*
+abcd^*+
 ab+c*
 ab+c*
 ab+cd-/
+abcd^*+ef*gh^-^
+abcd^*+ef*gh^-^
 Does Not have correct syntax.
-Does Not have correct syntax.
-Does Not have correct syntax.
-Does Not have correct syntax.
+ab/c*d/ef*gh^/ij-*+
 Does Not have correct syntax.
