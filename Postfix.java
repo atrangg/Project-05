@@ -28,23 +28,84 @@ public class Postfix // will interface with the stack class
 		counter = 0;
 		stack = new Stack<>();
 
-		// Process to check each character in array create postfixArray
-		for (int i = 0; i < inputArray.length; i++)
+		System.out.print("Infix Array getting converted: " + new String(inputArray) + " ... ");
+
+		// Check Syntax of infix to be converted to ensure it contains no errors while converting to postfix
+		boolean correctSyntax = true;
+		char previousChar = ' ';
+
+		for (int i = 0; i < inputArray.length && correctSyntax; i++)
 		{
-			characterCheck(inputArray[i]);
-			if (i+1 == inputArray.length)
+			if (inputArray[i] == '*' || inputArray[i] == '/' || inputArray[i] == '+' || inputArray[i] == '-' || previousChar == '^' )
+			{
+				if (previousChar != '*' || previousChar != '/' || previousChar != '+' || previousChar != '-' || previousChar != '(' || previousChar != ' ' || previousChar != '^' )
+				{
+					characterCheck(inputArray[i]);
+					previousChar = inputArray[i];
+				}
+				else
+				{
+					correctSyntax = false;
+				}
+			}
+			else if (inputArray[i] == '(')
+			{
+				if (previousChar == '*' || previousChar == '/' || previousChar == '+' || previousChar == '-' || previousChar == '(' || previousChar == '^' || previousChar == ' ')
+				{
+					characterCheck(inputArray[i]);
+					previousChar = inputArray[i];
+				}
+				else
+				{
+					correctSyntax = false;
+				}
+			}
+			else if (inputArray[i] == ')')
+			{
+				if (previousChar != '*' || previousChar != '/' || previousChar != '+' || previousChar != '-' || previousChar != '^' )
+				{
+					characterCheck(inputArray[i]);
+					previousChar = inputArray[i];
+				}
+				else
+				{
+					correctSyntax = false;
+				}
+			}
+			else if (inputArray[i] != ' ')
+			{
+				if (previousChar == '*' || previousChar == '/' || previousChar == '+' || previousChar == '-' || previousChar == '(' || previousChar == '^'   || previousChar == ' ')
+				{
+					characterCheck(inputArray[i]);
+					previousChar = inputArray[i];
+				}
+				else
+				{
+					correctSyntax = false;
+				}
+			}
+		}
+        
+		// Check to make sure the stack is Empty
+		while (!stack.isEmpty() && correctSyntax)
+		{
+			if (stack.peek() != '(')
 			{
 				addCharToString(stack.pop());
 			}
-        }
-        
-		// Check to make sure the stack is Empty, if not return an empty String
-		if (!stack.isEmpty())
-		{
-			System.out.println("stack is not empty");	
-			return "";
+			else
+			{
+				stack.pop();
+			}
 		}
+
+		System.out.println("done.\n");
+
 		// Create & Return the postfixString created from postfixArray
+		if (!correctSyntax)
+		{
+			return "Does Not have correct syntax.";
+		}
 		return postfixString;
 	}
 	
