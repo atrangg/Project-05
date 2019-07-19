@@ -1,1 +1,12 @@
 ab+
+abc*+
+Does Not have correct syntax.
+Does Not have correct syntax.
+ab+c*
+ab+c*
+ab+cd-/
+Does Not have correct syntax.
+Does Not have correct syntax.
+Does Not have correct syntax.
+Does Not have correct syntax.
+Does Not have correct syntax.
