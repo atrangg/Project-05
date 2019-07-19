@@ -32,11 +32,13 @@ public class Postfix // will interface with the stack class
 
 		// Check Syntax of infix to be converted to ensure it contains no errors while converting to postfix
 		boolean correctSyntax = true;
+		int leftHandBracketCount = 0;
+		int rightHandBracketCount = 0;
 		char previousChar = ' ';
 
 		for (int i = 0; i < inputArray.length && correctSyntax; i++)
 		{
-			if (inputArray[i] == '*' || inputArray[i] == '/' || inputArray[i] == '+' || inputArray[i] == '-' || previousChar == '^' )
+			if (inputArray[i] == '*' || inputArray[i] == '/' || inputArray[i] == '+' || inputArray[i] == '-' || inputArray[i] == '^' )
 			{
 				if (previousChar != '*' || previousChar != '/' || previousChar != '+' || previousChar != '-' || previousChar != '(' || previousChar != ' ' || previousChar != '^' )
 				{
@@ -50,6 +52,7 @@ public class Postfix // will interface with the stack class
 			}
 			else if (inputArray[i] == '(')
 			{
+				leftHandBracketCount++;
 				if (previousChar == '*' || previousChar == '/' || previousChar == '+' || previousChar == '-' || previousChar == '(' || previousChar == '^' || previousChar == ' ')
 				{
 					characterCheck(inputArray[i]);
@@ -62,6 +65,7 @@ public class Postfix // will interface with the stack class
 			}
 			else if (inputArray[i] == ')')
 			{
+				rightHandBracketCount++;
 				if (previousChar != '*' || previousChar != '/' || previousChar != '+' || previousChar != '-' || previousChar != '^' )
 				{
 					characterCheck(inputArray[i]);
@@ -85,7 +89,13 @@ public class Postfix // will interface with the stack class
 				}
 			}
 		}
-        
+		
+		// Check to make sure that each "(" has a ")"
+		if (rightHandBracketCount != leftHandBracketCount)
+		{
+			correctSyntax = false;
+		}
+
 		// Check to make sure the stack is Empty
 		while (!stack.isEmpty() && correctSyntax)
 		{
