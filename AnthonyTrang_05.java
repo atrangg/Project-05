@@ -3,8 +3,12 @@
   Anthony Trang & Willem Duvenhage
   Project # 5
   Various Systems & IDEs
-  Definition
-  Quote
+  Mathematics - the abstract science of number, quantity, and space. 
+				  Mathematics may be studied in its own right (pure mathematics), 
+				  or as it is applied to other disciplines such as physics and 
+				  engineering (applied mathematics).
+  “Since the mathematicians have invaded the theory of relativity I do not understand it myself any more.” 
+	- Albert Einstein - Mar 14, 1879 - Apr 18, 1955 (age 76)
 */
 
 // Import Statements
@@ -28,7 +32,7 @@ public class AnthonyTrang_05
 	private static String postfixResults;
 	/**
 	 * processInput method - processes the input received from file
-	 * 
+	 * @throws FileNotFoundException
 	 */
 	
 	public static void processInput() throws FileNotFoundException
