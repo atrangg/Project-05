@@ -129,7 +129,7 @@ public class Postfix // will interface with the stack class
 	
 	public static void addCharToString(char addChar)
 	{
-		postfixString = postfixString + Character.toString(addChar);
+		postfixString = postfixString + Character.toString(addChar) + " ";
 	}
 	
 	 // Checks the character to determine if it needs to be added to the stack or returned to be added to the postfixString
