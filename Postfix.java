@@ -62,7 +62,7 @@ public class Postfix // will interface with the stack class
 					correctSyntax = false;
 				}
 			}
-			else if (inputArray[i] == ')')
+			else if (inputArray[i] == ')' && !stack.isEmpty())
 			{
 				rightHandBracketCount++;
 				if (previousChar != '*' || previousChar != '/' || previousChar != '+' || previousChar != '-' || previousChar != '^' )
@@ -241,13 +241,6 @@ public class Postfix // will interface with the stack class
 		}
         else if (newChar == ')')
 		{
-			// Check if Stack is Empty
-			if(stack.isEmpty())
-			{
-				// Return an Error
-				correctSyntax = false;
-			}
-
 			// Peek at top of stack
 			topChar = stack.peek();
 
