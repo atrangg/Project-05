@@ -245,6 +245,7 @@ public class Postfix // will interface with the stack class
 			if(stack.isEmpty())
 			{
 				// Return an Error
+				correctSyntax = false;
 			}
 
 			// Peek at top of stack
