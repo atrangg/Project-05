@@ -1,12 +1,12 @@
-ab+
-abc*+
-abc^*
-abcd^*+
-ab+c*
-ab+c*
-ab+cd-/
-abcd^*+ef*gh^-^
-abcd^*+ef*gh^-^
+a b + 
+a b c * + 
+a b c ^ * 
+a b c d ^ * + 
+a b + c * 
+a b + c * 
+a b + c d - / 
+a b c d ^ * + e f * g h ^ - ^ 
+a b c d ^ * + e f * g h ^ - ^ 
 Does Not have correct syntax.
-ab/c*d/ef*gh^/ij-*+
+a b / c * d / e f * g h ^ / i j - * + 
 Does Not have correct syntax.
