@@ -62,10 +62,10 @@ public class Postfix // will interface with the stack class
 					correctSyntax = false;
 				}
 			}
-			else if (inputArray[i] == ')' && !stack.isEmpty())
+			else if (inputArray[i] == ')')
 			{
 				rightHandBracketCount++;
-				if (previousChar != '*' || previousChar != '/' || previousChar != '+' || previousChar != '-' || previousChar != '^' )
+				if (previousChar != '*' || previousChar != '/' || previousChar != '+' || previousChar != '-' || previousChar != '^'  && !stack.isEmpty())
 				{
 					characterCheck(inputArray[i]);
 					previousChar = inputArray[i];
