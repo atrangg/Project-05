@@ -7,12 +7,12 @@
 
 public class Postfix // will interface with the stack class
 {
-	public static Stack<Character> stack;
-	public static char charReturned;
-	public static String postfixString;
-	public static int counter;
-	public static char topChar;
-	public static char charToAdd;
+	// Initialized variables
+	public static Stack<Character> stack;	// The stack for storing characters
+	public static char charReturned;		// Char returned for the postfixString
+	public static String postfixString;		// Converted infix to postfix
+	public static char topChar;				// Character at the top of the stack
+	public static char charToAdd;			// Character to be added to the postfixString
 	
 	/**
 	 * convertToPostfix method - Converts the input received to Postfix 
@@ -25,7 +25,6 @@ public class Postfix // will interface with the stack class
 		// Take inputExpression and use .toCharArray() to create an Array of each of the characters
 		char[] inputArray = inputExpression.toCharArray();
 		postfixString = "";
-		counter = 0;
 		stack = new Stack<>();
 
 		System.out.print("Infix Array getting converted: " + new String(inputArray) + " ... ");
